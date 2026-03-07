@@ -8,3 +8,6 @@ Credits: Warranty Voider, Eisbaer, Nemoskal, Xevrac
  Last POC: https://www.youtube.com/watch?v=E0tTsIs9xps
  
  How to run: https://github.com/Tratos/CnC_Generals2_Alpha_Emu/wiki
+
+
+![CnC Generals 2 Screenshot](CnC_Generals2.jpg)
