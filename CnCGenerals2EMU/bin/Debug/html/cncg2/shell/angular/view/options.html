@@ -1,0 +1,112 @@
+<div class="options-modal-overlay" ng-show="optionsOpen">
+    
+    <div class="options-modal-box" ng-controller="OptionsController">
+        
+        <button class="btn-options-close" ng-click="closeOptions()"></button>
+        
+        <div class="options-header">
+            <h2>GAME OPTIONS</h2>
+        </div>
+        
+        <div class="options-body-wrapper">
+            
+            <div class="options-sidebar">
+                <ul class="options-tabs">
+                    <li ng-class="{'active': optionsTab == 'GRAPHICS'}"><a href="" ng-click="setOptionsTab('GRAPHICS')">GRAPHICS</a></li>
+                    <li ng-class="{'active': optionsTab == 'SOUND'}"><a href="" ng-click="setOptionsTab('SOUND')">SOUND</a></li>
+                    <li ng-class="{'active': optionsTab == 'CONTROLS'}"><a href="" ng-click="setOptionsTab('CONTROLS')">CONTROLS</a></li>
+                    <li ng-class="{'active': optionsTab == 'GAMEPLAY'}"><a href="" ng-click="setOptionsTab('GAMEPLAY')">GAMEPLAY</a></li>
+                </ul>
+                
+                <div class="options-restore-wrap">
+                    <button class="btn-opt-restore" ng-click="actionDiscard()">RESTORE DEFAULTS</button>
+                </div>
+            </div>
+            
+            <div class="options-content">
+                
+                <div class="opt-pane" ng-show="optionsTab == 'GRAPHICS'">
+                    <div class="opt-group">
+                        <label class="opt-label-main">Shell Display Mode</label>
+                        <label class="opt-radio">
+                            <input type="radio" name="shellMode" value="fullscreen" ng-model="settings.shellMode" ng-change="applyShellMode()"> Fullscreen
+                        </label>
+                        <label class="opt-radio">
+                            <input type="radio" name="shellMode" value="windowed" ng-model="settings.shellMode" ng-change="applyShellMode()"> Windowed
+                        </label>
+                    </div>
+                    
+                    <div class="opt-group">
+                        <label class="opt-label-main">Game Display Mode</label>
+                        <label class="opt-radio">
+                            <input type="radio" name="gameMode" value="fullscreen" ng-model="settings.gameMode" ng-change="applyGameMode()"> Full Screen
+                        </label>
+                        <label class="opt-radio">
+                            <input type="radio" name="gameMode" value="windowed" ng-model="settings.gameMode" ng-change="applyGameMode()"> Windowed
+                        </label>
+                    </div>
+                    
+                    <div class="opt-row clearfix">
+                        <div class="opt-col-half">
+                            <label class="opt-label-main">Full Screen Resolution</label>
+                            <select class="opt-select" ng-change="applyResolution()"><option>1920 X 1080</option></select>
+                        </div>
+                        <div class="opt-col-half">
+                            <label class="opt-label-main">Windowed Resolution</label>
+                            <select class="opt-select" ng-change="applyResolution()"><option>1600 X 900</option></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opt-pane" ng-show="optionsTab == 'SOUND'">
+                    <div class="opt-group">
+                        <label class="opt-label-main">
+                            Master Volume 
+                            <span id="volumeValue" style="float:right; color:#55aa00;">30%</span>
+                        </label>
+                        <input type="range" class="opt-slider" min="0" max="100" ng-model="settings.volume" ng-change="applyVolume()">
+                    </div>
+                </div>
+
+                <div class="opt-pane" ng-show="optionsTab == 'CONTROLS'">
+                    <div class="opt-group">
+                        <label class="opt-checkbox"><input type="checkbox" checked> Edge Pan</label>
+                    </div>
+                    
+                    <div class="opt-group">
+                        <label class="opt-label-main">Edge Scroll Speed</label>
+                        <input type="range" class="opt-slider" min="0" max="100" value="40">
+                    </div>
+                    
+                    <div class="opt-group">
+                        <label class="opt-label-main">Camera Drag Scroll</label>
+                        <label class="opt-radio"><input type="radio" name="dragScroll"> Middle Mouse Button</label>
+                        <label class="opt-radio"><input type="radio" name="dragScroll" checked> Right Mouse Button</label>
+                    </div>
+                </div>
+
+                <div class="opt-pane" ng-show="optionsTab == 'GAMEPLAY'">
+                    <div class="opt-group">
+                        <label class="opt-label-main">Move Mode</label>
+                        <label class="opt-radio"><input type="radio" name="moveMode"> Attack Move</label>
+                        <label class="opt-radio"><input type="radio" name="moveMode" checked> Standard Move</label>
+                    </div>
+                    
+                    <div class="opt-group" style="margin-top: 20px;">
+                        <label class="opt-checkbox"><input type="checkbox"> Allow Deselect</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="options-footer">
+            <button class="btn-opt-action btn-opt-yellow pull-left" ng-click="actionQuit()">QUIT GAME</button>
+            <div class="pull-right">
+                <button class="btn-opt-action btn-opt-green" ng-click="actionSave()">OK</button>
+                <button class="btn-opt-action btn-opt-yellow" ng-click="actionDiscard()">CANCEL</button>
+            </div>
+        </div>
+        
+    </div>
+</div>

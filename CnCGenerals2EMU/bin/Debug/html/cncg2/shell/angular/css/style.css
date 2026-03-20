@@ -1,0 +1,368 @@
+/* =========================================================================
+   OFFICIAL C&C FONTS (Mapped to Local Directory)
+   ========================================================================= */
+@font-face {
+    font-family: 'Eurostile-Med';
+    src: url('../fonts/Eurostile-Reg.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Eurostile-Hea';
+    src: url('../fonts/Eurostile-Bol.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Eurostile-Bla';
+    src: url('../fonts/EurostileExt-Bla.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'EurostileLTStd-BoldEx2'; 
+    src: url('../fonts/EurostileLTStd-BoldEx2.ttf') format('truetype');
+} 
+
+@font-face {
+    font-family: 'EurostileLTStd-Demi'; 
+    src: url('../fonts/EurostileLTStdBold.otf') format('opentype');
+}
+
+/* GLOBAL RESET & THEME */
+body.cc-theme {
+    background-color: #000;
+    color: #a0a0a0;
+    font-family: 'Eurostile-Med', Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin: 0;
+    padding: 0; 
+    background-image: url('../view/image/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden; 
+}
+
+/* CHROME 15 TEXT RENDERING BUG FIX */
+h1, h2, h3, h4, h5, h6, .cc-username { text-rendering: auto !important; }
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+/* =========================================================================
+   GLOBAL TEXTURES & BUTTONS
+   ========================================================================= */
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    font-family: 'Eurostile-Hea', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 1px 1px #000;
+    border: 1px solid #111;
+    border-radius: 4px;
+    padding: 8px 20px;
+    margin: 0;
+    -webkit-box-sizing: border-box; box-sizing: border-box;
+    
+    background-color: #333;
+    background-image: url('../view/image/debugPinkRect.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    
+    background-position: 0 0 !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+}
+
+.btn:hover, .btn:focus { 
+    text-decoration: none; 
+    color: #fff; 
+    border-color: #555; 
+    outline: none;
+    background-position: 0 0 !important; 
+    background-image: url('../view/image/debugPinkRect_Hover.png');
+}
+.btn:active { box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); outline: none;}
+
+/* =========================================================================
+   SPECIFIC BLUE BUTTON TEXTURES (btn_bg_01, 02, 03)
+   ========================================================================= */
+
+.btn-massive-play {
+    display: block; width: 100%; height: 70px;
+    font-size: 46px; font-weight: bold; color: #fff; line-height: 70px;
+    padding: 0; border-radius: 12px 12px 0 0; margin: 0;
+    text-shadow: 0 1px 2px #000;
+    text-rendering: auto !important; 
+    background-color: #176BC0;
+    background-image: url('../view/image/btn_bg_01.png');
+}
+.btn-massive-play:hover, .btn-massive-play:focus {
+    background-image: url('../view/image/btn_bg_01_over.png');
+}
+
+.btn-add-currency,
+.btn-options,
+.btn-play-dropdown {
+    background-color: #176BC0;
+    background-image: url('../view/image/btn_bg_02.png');
+}
+.btn-add-currency:hover, .btn-add-currency:focus,
+.btn-options:hover, .btn-options:focus,
+.btn-play-dropdown:hover, .btn-play-dropdown:focus {
+    background-image: url('../view/image/btn_bg_02_over.png');
+}
+
+.btn-massive-green {
+    display: block; width: 100%; height: 70px;
+    font-size: 46px; font-family: 'Eurostile-Hea', Arial, sans-serif; font-weight: bold; color: #fff; line-height: 70px;
+    padding: 0; border-radius: 0; margin: 0;
+    text-shadow: 0 1px 2px #000;
+    text-rendering: auto !important;
+    border: 1px solid #111;
+    background-color: #55aa00;
+    background-image: url('../view/image/btn_bg_03.png');
+    background-size: 100% 100%;
+}
+.btn-massive-green:hover, .btn-massive-green:focus {
+    background-image: url('../view/image/btn_bg_03_over.png');
+    color: #fff;
+    text-decoration: none;
+    border-color: #fff;
+}
+
+/* =========================================================================
+   BLOCK-SPECIFIC FORMATION
+   ========================================================================= */
+
+/* TOP BAR CURRENCY BLOCK */
+.cc-top-bar { position: absolute; top: 20px; left: 20px; right: 20px; height: 60px; z-index: 100;}
+.cc-currency-block { position: absolute; left: 0; top: 0; font-size: 16px; font-weight: bold; color: #fff; }
+.currency-value { margin-right: 15px; }
+
+.btn-add-currency {
+    border-radius: 2px;
+    font-size: 12px;
+    height: 18px; line-height: 16px;
+    padding: 0 5px;
+    vertical-align: middle;
+    margin: -3px 10px 0 0;
+}
+
+/* OPTIONS BLOCK */
+.cc-options-block { position: absolute; right: 0; top: 0; }
+.build-info-block { display: inline-block; text-align: right; margin-right: 15px; line-height: 1.2; font-size: 11px; color: #d00; font-family: monospace; vertical-align: top; }
+
+.btn-options {
+    font-weight: bold;
+    min-width: 140px;
+    padding: 6px 12px;
+}
+
+/* HEADER BANNER */
+.cc-header-banner { position: absolute; top: 90px; left: 20px; right: 20px; height: 100px; z-index: 100; }
+
+/* 1. PROFILE CLUSTER */
+.cc-profile-cluster { position: absolute; left: 0; top: 0; height: 100px; width: 362px; }
+.username-wrapper { position: absolute; top: 0; left: 0; width: 362px; height: 20px; z-index: 10;}
+.profile-backdrop { position: absolute; left: 0; top: 0; bottom: -2px; width: 402px; background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0) 100%); pointer-events: none; }
+.cc-username { display: block; color: #ccc; font-style: italic; font-size: 16px; font-family: 'Eurostile-Hea', sans-serif; font-weight: bold; text-transform: uppercase; margin: 0; padding-left: 5px; line-height: 20px; }
+
+.btn-avatar-texture { position: absolute; top: 20px; left: 0; height: 80px; width: 80px; padding: 0; border-radius: 0; } 
+
+.rank-bars-stack { 
+    position: absolute; 
+    top: 24px; 
+    left: 95px; 
+    width: 160px; 
+    height: 75px; 
+    z-index: 10; 
+}
+
+.wins-box { position: absolute; top: 20px; left: 262px; text-align: center; height: 80px; width: 100px; padding-top: 15px; background: -webkit-radial-gradient(center, ellipse cover, rgba(60,60,60,0.8) 0%, rgba(5,5,5,0.95) 80%); border: 1px solid #111; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.wins-box small { color: #888; font-size: 11px; display: block; line-height: 1; margin-bottom: 5px;}
+.wins-box h2 { margin: 0; color: #fff; font-size: 32px; font-family: 'Eurostile-Bla', sans-serif; font-weight: normal; line-height: 1; }
+
+/* 2. CENTER CLUSTER (Play Cluster) */
+.cc-center-cluster { position: absolute; left: 50%; margin-left: -180px; top: 0; width: 360px; height: 100px; }
+.play-btn-stack { position: absolute; top: 0; left: 0; width: 100%; height: 100px; }
+.play-dropdown-wrapper { display: block; clear: both; position: absolute; top: 74px; width: 100%; }
+
+.btn-play-dropdown {
+    display: block; position: relative;
+    width: 100%; height: 26px;
+    border-radius: 0 0 12px 12px;
+    padding: 0; border-top: none;
+}
+
+.mode-text { display: block; text-align: center; line-height: 26px; font-size: 16px; font-weight: bold; color: #fff; position: relative; z-index: 5; }
+.mode-arrow { position: absolute; right: 15px; top: 50%; margin-top: -5px; width: 15px; height: 10px; z-index: 5; }
+
+.play-dropdown-wrapper .dropdown-menu { width: 100%; background: rgba(10, 10, 10, 0.95); border: 1px solid #000; margin: 0; padding: 0; border-radius: 0; z-index: 1000; }
+.play-dropdown-wrapper .dropdown-menu > li > a { color: #ccc; padding: 8px 15px; text-align: center; border-bottom: 1px solid #000; border-top: 1px solid #222; font-weight: bold; font-size: 16px; }
+.play-dropdown-wrapper .dropdown-menu > li > a:hover { background: -webkit-linear-gradient(top, #4ca3e6, #094783); color: #fff; border-top: 1px solid #6cbcf5; }
+
+.left-docked-items { position: absolute; right: 380px; top: 20px; width: 170px; height: 80px; }
+.btn-portrait-texture { position: absolute; right: 0; top: 0; height: 80px; width: 80px; padding: 0; border-radius: 8px; }
+.btn-faction-texture { position: absolute; right: 90px; top: 0; height: 80px; width: 80px; padding: 0; border-radius: 0; }
+
+.right-docked-items { position: absolute; left: 380px; top: 20px; width: 100px; height: 80px; }
+.premium-badge-wrapper { position: absolute; bottom: 0; left: 0; width: 100px; height: 80px; }
+.premium-bg-img { width: 100%; height: 100%; display: block; border: 1px solid #444; }
+.premium-overlay-text { position: absolute; bottom: 5px; left: 0; width: 100%; text-align: center; color: #4ca3e6; font-size: 11px; font-weight: bold; line-height: 18px; }
+.btn-add-premium { padding: 0 4px; font-size: 10px; height: 16px; line-height: 16px; vertical-align: top; margin-left: 2px; }
+
+/* 3. PARTY CLUSTER */
+.cc-party-cluster { position: absolute; right: 0; top: 0; width: 205px; height: 100px;}
+.btn-create-party { font-weight: bold; padding: 15px; font-size: 16px; width: 100%; height: 100%; margin: 0; -webkit-box-sizing: border-box; box-sizing: border-box; border-radius: 0; }
+
+/* =========================================================================
+   NAVIGATION ALIGNMENT WRAPPER
+   ========================================================================= */
+.cc-nav-centered-wrapper { position: absolute; left: 50%; margin-left: -615px; width: 1230px; height: 100%; }
+
+/* =========================================================================
+   MAIN NAVIGATION TABS
+   ========================================================================= */
+.cc-nav-row { 
+    position: absolute; top: 200px; left: 20px; right: 20px; height: 50px; z-index: 50; 
+    background: -webkit-linear-gradient(left, transparent 0%, transparent 25%, #151714 40%, #151714 60%, transparent 75%, transparent 100%);
+}
+.cc-nav-row::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: -webkit-linear-gradient(left, transparent 0%, transparent 25%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,0.2) 60%, transparent 75%, transparent 100%);
+}
+.cc-main-nav { list-style: none; display: block; width: 100%; height: 50px; margin: 0; padding: 0; }
+.cc-main-nav > li { position: relative; display: block; float: left; width: 205px; height: 50px; margin: 0; padding: 0; }
+.cc-main-nav > li::after {
+    content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 1px;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%, transparent 100%); z-index: 10;
+}
+.cc-main-nav > li:last-child::after { display: none; }
+.cc-main-nav > li > a { 
+    display: block; width: 100%; height: 50px; line-height: 50px; padding: 0; margin: 0; 
+    font-family: 'Eurostile-Hea', Arial, sans-serif; font-weight: bold; font-size: 30px; text-transform: uppercase; text-align: center; color: #777; text-shadow: none; border-radius: 0 !important; background-color: transparent;
+    -webkit-transition: background-color 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; transition: background-color 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
+}
+.cc-main-nav > li > a:hover { background-color: #053F76 !important; color: #fff; text-shadow: 0 0 10px #fff; text-decoration: none; }
+.cc-main-nav > li.active > a, .cc-main-nav > li.active > a:hover { 
+    background-color: #053F76 !important; background-image: none !important; color: #fff; text-shadow: 0 0 10px #fff; text-decoration: none;
+    -webkit-transition: none; transition: none;
+}
+
+/* =========================================================================
+   SUB NAVIGATION
+   ========================================================================= */
+.cc-subnav-row { position: absolute; top: 252px; left: 20px; right: 20px; height: 40px; z-index: 49; background: transparent; }
+.cc-subnav { list-style: none; display: block; height: 40px; margin: 0; padding: 0; float: left; }
+.cc-subnav > li { display: block; float: left; height: 40px; margin: 0; padding: 0; }
+.cc-subnav > li > a { 
+    display: block; height: 40px; line-height: 40px; padding: 0 25px; font-family: 'Eurostile-Hea', Arial, sans-serif; font-size: 24px; font-weight: bold; text-transform: uppercase; color: #888; text-shadow: none; background-color: #151714; background-image: none; border: none;
+    -webkit-transition: background-color 0.5s ease, color 0.5s ease; transition: background-color 0.5s ease, color 0.5s ease;
+}
+.cc-subnav > li > a:hover { background-color: #053F76 !important; background-image: none !important; color: #fff; text-shadow: none; text-decoration: none; }
+.cc-subnav > li.active > a { 
+    background-color: #053F76 !important; background-image: none !important; color: #fff; text-shadow: none; text-decoration: none;
+    -webkit-transition: none; transition: none;
+}
+
+/* =========================================================================
+   CONTENT AREA & LIVE TAB SLIDESHOW
+   ========================================================================= */
+.cc-content-area { position: absolute; top: 310px; bottom: 30px; left: 20px; right: 20px; z-index: 10; }
+.cc-map-area { position: absolute; left: 0; right: 410px; top: 0; bottom: 0; }
+
+.cc-live-tab { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden;}
+.live-bg-image-bottom { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; z-index: 1; -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0);}
+.live-bg-image-top { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; opacity: 0; z-index: 2; -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0);}
+.live-bg-image-top.fade-in { opacity: 1; -webkit-transition: opacity 0.8s ease-in; transition: opacity 0.8s ease-in;}
+
+.live-slider-dots { position: absolute; bottom: 15px; right: 20px; z-index: 20;}
+.live-dot { display: inline-block; width: 10px; height: 10px; border-radius: 5px; background: #555; margin-left: 5px; cursor: pointer; border: 1px solid #111;}
+.live-dot.active { background: #e0e0e0; }
+
+
+/* =========================================================================
+   DYNAMIC FOOTER (Fading Background & Alert Mechanics)
+   ========================================================================= */
+.cc-footer { 
+    position: fixed; 
+    bottom: 0; 
+    left: 20px; 
+    right: 20px; 
+    height: 35px; 
+    /* Brighter grey top fading clearly to transparent at the bottom */
+    background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.85) 0%, rgba(10, 10, 10, 0.6) 50%, rgba(0, 0, 0, 0) 100%);
+    border-top: 1px solid #333; 
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    padding: 0 10px; 
+    -webkit-box-sizing: border-box; box-sizing: border-box; 
+    z-index: 100; 
+}
+
+/* C&C Logo Button using the transparent about_logo.png */
+.btn-cnc-credits {
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    width: 80px; 
+    height: 22px;
+    background: transparent url('../view/image/about_logo.png') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    border: none;
+    -webkit-box-shadow: none; box-shadow: none;
+}
+.btn-cnc-credits:hover {
+    -webkit-filter: brightness(1.3);
+}
+.btn-cnc-credits:focus { outline: none; }
+
+/* Blinking Alert Marker Button (Positioned safely left of the sidebar) */
+.btn-alert-marker {
+    position: absolute;
+    right: 420px; /* Anchored exactly left of the 410px sidebar + 10px spacing */
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px; 
+    border: 2px solid #e6b322;
+    color: #e6b322;
+    background: rgba(0,0,0,0.8);
+    text-align: center;
+    line-height: 16px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    /* WebKit animation for constant blinking */
+    -webkit-animation: alertBlink 1.5s infinite ease-in-out;
+}
+
+@-webkit-keyframes alertBlink {
+    0% { opacity: 1; -webkit-box-shadow: 0 0 5px #e6b322; } 
+    50% { opacity: 0.3; -webkit-box-shadow: 0 0 0 transparent; } 
+    100% { opacity: 1; -webkit-box-shadow: 0 0 5px #e6b322; }
+}
+
+/* Yellow Placeholder Popup Box attached above the alert marker */
+.alert-popup-box {
+    position: absolute;
+    bottom: 40px; 
+    right: 420px; /* Anchored directly inline with the alert marker */
+    width: 250px;
+    height: 180px;
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid #e6b322; 
+    background-image: -webkit-linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%, #111), 
+                      -webkit-linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%, #111);
+    background-size: 4px 4px;
+    background-position: 0 0, 2px 2px;
+    z-index: 105;
+    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.8);
+}

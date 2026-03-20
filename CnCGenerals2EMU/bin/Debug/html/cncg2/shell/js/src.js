@@ -1,70 +1,69 @@
 function getOptions() {
-    const request = {
+    var request = {
         url: "/options/graphics/get"
-    }
+    };
     shellaccesslayer.execute(request);
 }
 
 function FrontEndFullscreenTrue() {
-    const request = {
+    var request = {
         _resource: "/usersettings/apply",
-        shellfullscreen: true,
+        shellfullscreen: true
     };
     shellaccesslayer.execute(request);
 }
 
 function FrontEndFullscreenFalse() {
-    const request = {
+    var request = {
         _resource: "/usersettings/apply",
-        shellfullscreen: false,
+        shellfullscreen: false
     };
     shellaccesslayer.execute(request);
 }
 
 function GameFullscreen() {
-    const request = {
+    var request = {
         _resource: "/usersettings/apply",
-        gamefullscreen: true,
+        gamefullscreen: true
     };
     shellaccesslayer.execute(request);
 }
 
 function SetFullscreenDimensions() {
-    const request = {
+    var request = {
         _resource: "/usersettings/apply",
         fullscreenwidth: 1920,
-        fullscreenheight: 1080,
+        fullscreenheight: 1080
     };
     shellaccesslayer.execute(request);
 }
 
 function SetWindowedDimensions() {
-    const request = {
+    var request = {
         _resource: "/usersettings/apply",
-        windowedwidth: 1920,
-        windowedheight: 1080,
+        windowedwidth: 1600,
+        windowedheight: 900
     };
     shellaccesslayer.execute(request);
 }
 
 function updateVolume(value) {
-    const maxDisplayedValue = 10;
-    const displayedValue = (value / 100) * maxDisplayedValue;
+    var maxDisplayedValue = 10;
+    var displayedValue = (value / 100) * maxDisplayedValue;
 
-    // Map displayedValue to the full range (0% to 100%)
-    const fullRangeValue = (displayedValue / maxDisplayedValue) * 100;
+    var fullRangeValue = (displayedValue / maxDisplayedValue) * 100;
 
     document.getElementById('volumeValue').textContent = fullRangeValue.toFixed(0) + '%';
     MasterVolume(displayedValue);
 }
 
 function MasterVolume(displayedValue) {
-    const maxSliderValue = 100;
-    const actualValue = (displayedValue / maxSliderValue) * 100;
+    var maxSliderValue = 100;
+    var actualValue = (displayedValue / maxSliderValue) * 100;
 
-    const request = {
+    var request = {
         _resource: "/usersettings/apply",
-        mastervolume: actualValue,
+        mastervolume: actualValue
     };
 
     shellaccesslayer.execute(request);
@@ -113,22 +112,22 @@ function MasterVolume(displayedValue) {
 // }
 
 function applyAudio() {
-    const request = {
-        _resource: "/usersettings/applyAudio",
+    var request = {
+        _resource: "/usersettings/applyAudio"
     };
     shellaccesslayer.execute(request);
 }
 
 function save() {
-    const request = {
-        _resource: "/usersettings/save",
+    var request = {
+        _resource: "/usersettings/save"
     };
     shellaccesslayer.execute(request);
 }
 
 function discard() {
-    const request = {
-        _resource: "/usersettings/discard",
+    var request = {
+        _resource: "/usersettings/discard"
     };
     shellaccesslayer.execute(request);
 }
@@ -186,7 +185,7 @@ function drawScreenInfo(enable) {
     } else {
         gameclient.execute('Render.DrawInfo false');
         gameclient.execute('Render.DrawFpsHistogram false');
-        gameclient.execute('Render.DrawScreenInfo false');            
+        gameclient.execute('Render.DrawScreenInfo false');
     }
 }
 
@@ -205,7 +204,7 @@ function fpsIncrease(enable) {
     } else {
         gameclient.execute('GameTime.MaxSimFps 30');
         gameclient.execute('GameTime.MaxVariableFps 30');
-        gameclient.execute('GameTime.MaxInactiveVariableFps 30');            
+        gameclient.execute('GameTime.MaxInactiveVariableFps 30');
     }
 }
 
@@ -246,13 +245,11 @@ function createBlazeGame() {
     });
 }
 
-/// Authenticate v2
-
 function blazeAuthenticate() {
-    const request = {
+    var request = {
         _resource: "/blaze/authenticate",
         email: "test@test.com",
-        password: "test",
+        password: "test"
     };
 
     shellaccesslayer.execute({
@@ -269,11 +266,9 @@ function tokenAuthenticate() {
 }
 
 function ShellResult(res) {
-    // Handle the response here
-    const debugOutput = document.getElementById("debugOutput");
+    var debugOutput = document.getElementById("debugOutput");
     debugOutput.innerText = 'RESPONSE: ' + JSON.stringify(res, null, 2);
 
-    // You can add additional logic based on the response if needed
     if (res.success) {
         console.log("Authentication successful!");
     } else {
@@ -282,15 +277,14 @@ function ShellResult(res) {
 }
 
 function blazeJoinGame() {
-    const request = {
+    var request = {
         url: "/blaze/joinGame?gameID=1"
-    }
+    };
     shellaccesslayer.execute(request);
 }
 
-
 function blazeJoinGame1() {
-    var hosting = "localhost",
+    var hosting = "localhost";
     var playerId = 1;
 
     var command = 'RtsClient.joinGame ' + playerId + ' ' + hosting + ' ';
@@ -303,27 +297,23 @@ function blazeJoinGame1() {
     }
 }
 
-
-
-
-
 function getConfig() {
-    const request = {
+    var request = {
         url: "/config/"
-    }
+    };
     shellaccesslayer.execute(request);
 }
 
 function quitSession() {
-    const request = {
-        _resource: "/session/quit",
+    var request = {
+        _resource: "/session/quit"
     };
     shellaccesslayer.execute(request);
 }
 
 function surrenderSession() {
-    const request = {
-        _resource: "/session/surrender",
+    var request = {
+        _resource: "/session/surrender"
     };
     shellaccesslayer.execute(request);
 }
